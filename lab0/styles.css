@@ -1,3 +1,33 @@
-h1 {
-	color: red;
+body {
+	padding-top: 50px;
+}
+.starter-template {
+	padding: 40px 15px;
+	text-align: center;
+}
+
+#forecast{
+	margin-top: 100px;
+	height: 100px;
+	background-color: gray;
+}
+.horizontal {
+	display: table; 
+	margin: 0 auto;
+}
+ul#horizontal-list {
+	min-width: 696px;
+	list-style: none;
+	padding-top: 20px;
+}
+ul#horizontal-list li {
+	display: inline;
+}
+ul#horizontal-list div {
+	float:left;
+	padding-left:20px;
+	padding-right:20px;
+}
+ul#horizontal-list span {
+	display: block;
 }
