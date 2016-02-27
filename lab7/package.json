@@ -1,0 +1,19 @@
+{
+  "name": "lab7",
+  "version": "1.0.0",
+  "description": "In this lab you will implement the cities RESTful service in Node.js that connects to your weather AJAX application.  You will take a URL with a ?q=chars suffix and will look up all of the utah cities that have chose chars as a prefix.  You will then return a JSON string corresponding to the entries.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tannerwj/cs360/tree/master/lab7"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "request": "^2.69.0"
+  }
+}
