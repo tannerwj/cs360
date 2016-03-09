@@ -17,9 +17,6 @@
       var data = {name: n, comment: c}
       clear()
 
-      $.post('/comment', data, function (){
-        successDiv.text('success')
-      })
       $.ajax({
         url: '/comment',
         type: 'POST',
