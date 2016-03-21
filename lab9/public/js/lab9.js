@@ -14,8 +14,9 @@ app.controller('Main', ['$scope', '$http', function($scope, $http){
     var c = $scope.newComment
     if (c){
       $scope.newComment = ''
-      $http.post('/save', { comment: c })
-      $scope.comments.push({ comment: c, upVotes: 0, downVotes: 0 })
+      $http.post('/save', { comment: c }).success(function (data){
+        $scope.comments = data
+      })      
     }
   }
 

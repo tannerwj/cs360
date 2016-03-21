@@ -13,7 +13,9 @@ router.get('/comments', function (req, res){
 router.post('/save', function (req, res){
   var c = new Comment(req.body)
   c.save().then(function (data){
-    res.sendStatus(200)
+    return getComments().then(function (comments){
+      res.send(comments)
+    })
   })
 })
 
