@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <title>cs360 lab 9</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous'>
+</head>
+<body>
+  <div class='container' style='text-align:center;width:500px'>
+    <form class='form-horizontal' style='margin-top:100px'>
+      <div class='form-group'>
+        <label for='username' class='col-sm-2 console control-label'>Username</label>
+        <div class='col-sm-10'>
+          <input type='text' class='form-control' id='username' placeholder='Username'>
+        </div>
+      </div>
+      <div class='form-group'>
+        <label for='password' class='col-sm-2 control-label'>Password</label>
+        <div class='col-sm-10'>
+          <input type='password' class='form-control' id='password' placeholder='Password'>
+        </div>
+      </div>
+      <div class='form-group'>
+        <div class='col-sm-offset-2 col-sm-10'>
+          <button type='submit' class='btn btn-primary' id='login'>login</button>
+          <button type='submit' class='btn btn-primary' id='logout'>logout</button>
+          <button type='submit' class='btn btn-info' id='status'>status</button>
+        </div>
+      </div>
+    </form>
+    <div id='loginMsg'></div>
+    <form class='form-horizontal' style='margin-top:50px'>
+      <div class='form-group'>
+        <label for='name' class='col-sm-2 console control-label'>Name</label>
+        <div class='col-sm-10'>
+          <input type='text' class='form-control' id='name' placeholder='Name'>
+        </div>
+      </div>
+      <div class='form-group'>
+        <label for='comment' class='col-sm-2 control-label'>Comment</label>
+        <div class='col-sm-10'>
+          <input type='text' class='form-control' id='comment' placeholder='Comment'>
+        </div>
+      </div>
+      <div class='form-group'>
+        <div class='col-sm-offset-2 col-sm-10'>
+          <button type='submit' class='btn btn-primary' id='submit'>Submit</button>
+          <button type='submit' class='btn btn-info' id='show'>Show Comments</button>
+        </div>
+      </div>
+    </form>
+    <div id='json'></div>
+    <div id='success'></div>
+    <div id='comments' style='text-align:left;cursor:pointer;'></div>
+    <form class='form-horizontal' style='margin-top:50px'>
+      <div class='form-group'>
+        <label for='city' class='col-sm-2 console control-label'>City</label>
+        <div class='col-sm-10'>
+          <input type='text' class='form-control' id='cityfield' placeholder='Enter a Utah City'>
+        </div>
+      </div>
+      <div class='form-group'>
+        <div class='col-sm-offset-2 col-sm-10'>
+          <button type='submit' class='btn btn-primary' id='findCity'>submit</button>
+        </div>
+      </div>
+    </form>
+    <div style='text-align:left;'>
+      Suggestion: <span id="txtHint">Empty</span>
+      <p>City</p>
+    	<textarea id="dispcity">No City</textarea>
+    	<p>Current Weather</p>
+    	<div id="weather">No weather</div>
+    </div>
+  </div>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'></script>
+  <script src='js/lab8.js'></script>
+</body>
+</html>

@@ -1,34 +1,18 @@
-const MongoClient = require('mongodb').MongoClient
-const ObjectId = require('mongodb').ObjectID
+const mongoose = require('mongoose')
 
-var url = 'mongodb://localhost:27017/lab8'
-var db
+mongoose.connect('mongodb://localhost/comments')
 
-var getDB = function(){
-	return new Promise(function (resolve, reject){
-		if(db) return resolve(db)
-		MongoClient.connect(url, function (err, database) {
-			if(err) return reject(err)
-			db = database
-			return resolve(database)
-		})
-	})
+var db = mongoose.connection
+
+db.on('error', console.error.bind(console, 'DB connection error:'))
+
+db.once('open', console.error.bind(console, 'DB connected'))
+
+var getDB = function (){
+  return new Promise(function (resolve, reject){
+    if(db) return resolve(db)
+    setTimeout(getDB, 100)
+  })
 }
 
-exports.saveComment = function (comment){
-	return getDB().then(function (db){
-		return db.collection('comments').insertOne(comment)
-	})
-}
-
-exports.getComments = function (){
-	return getDB().then(function (db){
-		return db.collection('comments').find({}).toArray()
-	})
-}
-
-exports.deleteComment = function (id){
-	return getDB().then(function (db){
-		return db.collection('comments').remove({'_id': ObjectId(id)})
-	})
-}
+module.exports = getDB()

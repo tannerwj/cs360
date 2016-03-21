@@ -1,0 +1,25 @@
+.container{
+   text-align: center;
+   width: 500px
+}
+.form-inline{
+  margin: 50px 0
+}
+#comments{
+   text-align:left
+}
+.click{
+  cursor: pointer
+}
+.red{
+  color: red
+}
+.green{
+  color: green
+}
+.text{
+  font-size: 3em
+}
+.form-inline{
+  margin-top:50px
+}

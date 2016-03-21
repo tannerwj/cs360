@@ -1,78 +1,45 @@
-<!doctype html>
-<html lang='en'>
+<!DOCTYPE html>
+<html lang='en' ng-app='Comments'>
 <head>
   <title>cs360 lab 9</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' integrity='sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7' crossorigin='anonymous'>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+  <link rel='stylesheet' href='/css/styles.css'>
 </head>
 <body>
-  <div class='container' style='text-align:center;width:500px'>
-    <form class='form-horizontal' style='margin-top:100px'>
+  <div class='container' ng-controller='Main'>
+    <form class='form-inline'>
       <div class='form-group'>
-        <label for='username' class='col-sm-2 console control-label'>Username</label>
-        <div class='col-sm-10'>
-          <input type='text' class='form-control' id='username' placeholder='Username'>
-        </div>
+        <input type='text' class='form-control' ng-model='newComment' placeholder='Comment'>
       </div>
-      <div class='form-group'>
-        <label for='password' class='col-sm-2 control-label'>Password</label>
-        <div class='col-sm-10'>
-          <input type='password' class='form-control' id='password' placeholder='Password'>
-        </div>
-      </div>
-      <div class='form-group'>
-        <div class='col-sm-offset-2 col-sm-10'>
-          <button type='submit' class='btn btn-primary' id='login'>login</button>
-          <button type='submit' class='btn btn-primary' id='logout'>logout</button>
-          <button type='submit' class='btn btn-info' id='status'>status</button>
-        </div>
-      </div>
+      <button type='submit' class='btn btn-primary' ng-click='saveComment()'>Submit</button>
     </form>
-    <div id='loginMsg'></div>
-    <form class='form-horizontal' style='margin-top:50px'>
-      <div class='form-group'>
-        <label for='name' class='col-sm-2 console control-label'>Name</label>
-        <div class='col-sm-10'>
-          <input type='text' class='form-control' id='name' placeholder='Name'>
+    <div id='comments'>
+      <div class='list-group-item' ng-repeat='c in comments | orderBy: order:sort'>
+        <div class='row'>
+          <div class='col-xs-4 click text' ng-click='delete(c)'>
+            {{c.comment}}
+          </div>
+          <div class='col-xs-2 green text'>
+            {{c.upVotes}}
+          </div>
+          <div class='col-xs-2 red text'>
+            {{c.downVotes}}
+          </div>
+          <div class='col-xs-2 click green'>
+              <i ng-click='upVote(c)' class='fa fa-arrow-up fa-5x'></i>
+          </div>
+          <div class='col-xs-2 click red'>
+              <i ng-click='downVote(c)' class='fa fa-arrow-down fa-5x'></i>
+          </div>
         </div>
       </div>
-      <div class='form-group'>
-        <label for='comment' class='col-sm-2 control-label'>Comment</label>
-        <div class='col-sm-10'>
-          <input type='text' class='form-control' id='comment' placeholder='Comment'>
-        </div>
-      </div>
-      <div class='form-group'>
-        <div class='col-sm-offset-2 col-sm-10'>
-          <button type='submit' class='btn btn-primary' id='submit'>Submit</button>
-          <button type='submit' class='btn btn-info' id='show'>Show Comments</button>
-        </div>
-      </div>
-    </form>
-    <div id='json'></div>
-    <div id='success'></div>
-    <div id='comments' style='text-align:left;cursor:pointer;'></div>
-    <form class='form-horizontal' style='margin-top:50px'>
-      <div class='form-group'>
-        <label for='city' class='col-sm-2 console control-label'>City</label>
-        <div class='col-sm-10'>
-          <input type='text' class='form-control' id='cityfield' placeholder='Enter a Utah City'>
-        </div>
-      </div>
-      <div class='form-group'>
-        <div class='col-sm-offset-2 col-sm-10'>
-          <button type='submit' class='btn btn-primary' id='findCity'>submit</button>
-        </div>
-      </div>
-    </form>
-    <div style='text-align:left;'>
-      Suggestion: <span id="txtHint">Empty</span>
-      <p>City</p>
-    	<textarea id="dispcity">No City</textarea>
-    	<p>Current Weather</p>
-    	<div id="weather">No weather</div>
+        Allows up/down vote, delete by clicking comment text, sorts by amount of upvotes
     </div>
   </div>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js'></script>
-  <script src='js/lab8.js'></script>
+  <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js'></script>
+  <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js'></script>
+  <script src='/js/lab9.js'></script>
 </body>
 </html>
